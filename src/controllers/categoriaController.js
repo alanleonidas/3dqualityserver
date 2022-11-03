@@ -26,9 +26,16 @@ const updateCategoria = async (req, res) =>{
     return res.status(204).json();
 };
 
+const testeCategoria = async (req, res) =>{
+    console.log(" --> categoriaController --> testeCategoria");
+    return res.status(200).json({mensagem: "Sucesso"});
+
+}
+
 module.exports ={
     getAll,
     createCategoria,
     deleteCategoria,
-    updateCategoria
+    updateCategoria,
+    testeCategoria
 };
