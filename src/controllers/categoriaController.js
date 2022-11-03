@@ -3,7 +3,7 @@ const categoriaModel = require("../models/categoriaModel");
 const getAll = async (_req, res) =>{
     console.log(" --> categoriaController --> getAll");
     const categoria = await categoriaModel.getAll();
-    return res.status(200).json(categoria);
+    return res.status(200).json({result: categoria});
 };
 
 const createCategoria = async (req, res) =>{
