@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const categoriaController = require("./controllers/categoriaController");
 const categoriaMiddleware = require("./middlewares/categoriaMiddleware");
 const router = express.Router();
+router.use(cors);
 
 
 router.get("/", (request, response) => response.status(200).send("Serviço ativo"));
