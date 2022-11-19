@@ -1,48 +1,48 @@
-const categoriaModel = require("../models/categoriaModel");
+const produtosModel = require("../models/produtosModel");
 
 const getAll = async (req, res, next) =>{
-    console.log(" --> categoriaController --> getAll");
+    console.log(" --> produtoController --> getAll");
 
     // var token = req.headers["x-access-token"];
     // if (!token) return res.status(401).send({ auth: false, message: "Nenhum token informado."});
     // if (token!="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21pbmlvIjoiM0RRdWFsaXR5QnIiLCJuYW1lIjoiU2VydmljZSIsInBhc3N3b2FyZCI6IkFwaUE4MTMyMDBETFQhIyJ9.cDoBWGGPIn_6o7-EG62d-_LOKLfxBlKP2shgRPn2Wec")  return res.status(401).send({ auth: false, message: "Token não autorizado."});
-    const categoria = await categoriaModel.getAll();
+    const produtos = await produtosModel.getAll();
     next();
-    return res.status(200).json({result: categoria});   
+    return res.status(200).json({result: produtos});   
 };
 
-const createCategoria = async (req, res) =>{    
-    console.log(" --> categoriaController --> createCategoria");
+const createProduto = async (req, res) =>{    
+    console.log(" --> produtoController --> createProduto");
     var token = req.headers["x-access-token"];
     if (!token) return res.status(401).send({ auth: false, message: "Nenhum token informado."});
     if (token!="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21pbmlvIjoiM0RRdWFsaXR5QnIiLCJuYW1lIjoiU2VydmljZSIsInBhc3N3b2FyZCI6IkFwaUE4MTMyMDBETFQhIyJ9.cDoBWGGPIn_6o7-EG62d-_LOKLfxBlKP2shgRPn2Wec")  return res.status(401).send({ auth: false, message: "Token não autorizado."});
-    const categoria = await categoriaModel.createCategoria(req.body);
-    return res.status(201).json(categoria);
+    const produto = await produtosModel.createProduto(req.body);
+    return res.status(201).json(produto);
 };
 
-const deleteCategoria = async (req, res) => {   
-    console.log(" --> categoriaController --> deleteCategoria");
+const deleteProduto = async (req, res) => {   
+    console.log(" --> produtoController --> deleteProduto");
     var token = req.headers["x-access-token"];
     if (!token) return res.status(401).send({ auth: false, message: "Nenhum token informado."});
     if (token!="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21pbmlvIjoiM0RRdWFsaXR5QnIiLCJuYW1lIjoiU2VydmljZSIsInBhc3N3b2FyZCI6IkFwaUE4MTMyMDBETFQhIyJ9.cDoBWGGPIn_6o7-EG62d-_LOKLfxBlKP2shgRPn2Wec")  return res.status(401).send({ auth: false, message: "Token não autorizado."});
     const  { id } = req.params;
-    await categoriaModel.deleteCategoria(id);
+    await produtosModel.deleteProduto(id);
     return res.status(204).json();
 };
 
-const updateCategoria = async (req, res) =>{   
-    console.log(" --> categoriaController --> updateCategoria");
+const updateProduto = async (req, res) =>{   
+    console.log(" --> produtoController --> updateProduto");
     var token = req.headers["x-access-token"];
     if (!token) return res.status(401).send({ auth: false, message: "Nenhum token informado."});
     if (token!="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21pbmlvIjoiM0RRdWFsaXR5QnIiLCJuYW1lIjoiU2VydmljZSIsInBhc3N3b2FyZCI6IkFwaUE4MTMyMDBETFQhIyJ9.cDoBWGGPIn_6o7-EG62d-_LOKLfxBlKP2shgRPn2Wec")  return res.status(401).send({ auth: false, message: "Token não autorizado."});
     const  { id } = req.params;
-    await categoriaModel.updateCategoria(id, req.body);
+    await produtosModel.updateProduto(id, req.body);
     return res.status(204).json();
 };
 
 module.exports ={
     getAll,
-    createCategoria,
-    deleteCategoria,
-    updateCategoria
+    createProduto,
+    deleteProduto,
+    updateProduto
 };
