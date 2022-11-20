@@ -42,7 +42,7 @@ const updateProduto = async (id, produto) =>{
     const dateUTC = new Date(Date.now()).toUTCString();
     const [updateProduto] = await connection.execute("UPDATE PRODUTOS SET PR_DESCRICAO = ?, PR_OBSERVACAO = ?, PR_DESCRICAORESUMIDA = ?, "+
         "PR_VALORVENDA = ?, PR_PROMOCAO = ?, PR_DATAPROMOCAOINICIO = ?, PR_DATAPROMOCAOFIM = ?, PR_VALORPROMOCAO = ?, PR_INATIVO = ? "+
-        " PR_IDCATEGORIA = ?, PR_FOTOS = ?, update_at = ? WHERE ID = ?", [descricao, observacao, descricaoResumida, valorVenda, promocao, dataPromocaoInicio, dataPromocaoFim, valorPromocao, inativo,idCategoria, fotos, dateUTC, id]);
+        "  PR_FOTOS = ?, PR_IDCATEGORIA = ?, update_at = ? WHERE ID = ?", [descricao, observacao, descricaoResumida, valorVenda, promocao, dataPromocaoInicio, dataPromocaoFim, valorPromocao, inativo, fotos, idCategoria,  dateUTC, id]);
 
     return updateProduto;
 };
