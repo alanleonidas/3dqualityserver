@@ -12,6 +12,18 @@ const getAll = async () => {
     return produtos;
 };
 
+const getByCategoriaAll = async (id) => {
+    console.log("--> produtosModel --> executando getAll ");
+    const [produtos] = await connection.execute("SELECT P.ID as id, P.PR_DESCRICAO as descricao, P.PR_OBSERVACAO as observacao, "+
+                                                " P.PR_DESCRICAORESUMIDA as descricaoResumida, P.PR_VALORVENDA as valorVenda, "+
+                                                 "P.PR_PROMOCAO as promocao, P.PR_DATAPROMOCAOINICIO as dataPromocaoInicio, "+
+                                                 "P.PR_DATAPROMOCAOFIM as dataPromocaoFim, P.PR_VALORPROMOCAO as valorPromocao, "+
+                                                 "P.PR_INATIVO as inativo, P.PR_FOTOS as imgs, c.NOME as categoria FROM PRODUTOS AS P LEFT JOIN CATEGORIA c ON (c.ID = P.PR_IDCATEGORIA ) "+
+                                                 " WHERE PR_INATIVO <> '1' AND deleted_at is null AND PR_IDCATEGORIA = "+id);
+    console.log(produtos);                                        
+    return produtos;
+};
+
 const createProduto = async (produtos) =>{
     const queryInsert = "INSERT INTO PRODUTOS (PR_DESCRICAO, PR_OBSERVACAO, PR_DESCRICAORESUMIDA, PR_VALORVENDA, PR_PROMOCAO, "+
                         "PR_DATAPROMOCAOINICIO, PR_DATAPROMOCAOFIM, PR_VALORPROMOCAO, PR_INATIVO, PR_IDCATEGORIA, PR_FOTOS, created_at) "+
@@ -49,6 +61,7 @@ const updateProduto = async (id, produto) =>{
 
 module.exports = {
     getAll,
+    getByCategoriaAll,
     createProduto,
     deleteProduto,
     updateProduto

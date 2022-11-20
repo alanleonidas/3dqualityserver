@@ -11,6 +11,18 @@ const getAll = async (req, res, next) =>{
     return res.status(200).json({result: produtos});   
 };
 
+const getByCategoriaAll = async (req, res, next) =>{
+    console.log(" --> produtoController --> getAll");
+
+    // var token = req.headers["x-access-token"];
+    // if (!token) return res.status(401).send({ auth: false, message: "Nenhum token informado."});
+    // if (token!="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21pbmlvIjoiM0RRdWFsaXR5QnIiLCJuYW1lIjoiU2VydmljZSIsInBhc3N3b2FyZCI6IkFwaUE4MTMyMDBETFQhIyJ9.cDoBWGGPIn_6o7-EG62d-_LOKLfxBlKP2shgRPn2Wec")  return res.status(401).send({ auth: false, message: "Token não autorizado."});
+    const  { id } = req.params;
+    const produtos = await produtosModel.getByCategoriaAll(id);
+    next();
+    return res.status(200).json({result: produtos});   
+};
+
 const createProduto = async (req, res) =>{    
     console.log(" --> produtoController --> createProduto");
     var token = req.headers["x-access-token"];
@@ -42,6 +54,7 @@ const updateProduto = async (req, res) =>{
 
 module.exports ={
     getAll,
+    getByCategoriaAll,
     createProduto,
     deleteProduto,
     updateProduto
