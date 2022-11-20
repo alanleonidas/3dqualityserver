@@ -12,7 +12,7 @@ const getAll = async (req, res, next) =>{
 };
 
 const getByCategoriaAll = async (req, res, next) =>{
-    console.log(" --> produtoController --> getAll");
+    console.log(" --> produtoController --> getByCategoriaAll");
 
     // var token = req.headers["x-access-token"];
     // if (!token) return res.status(401).send({ auth: false, message: "Nenhum token informado."});

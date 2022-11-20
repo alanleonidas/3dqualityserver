@@ -13,7 +13,7 @@ const getAll = async () => {
 };
 
 const getByCategoriaAll = async (id) => {
-    console.log("--> produtosModel --> executando getAll ");
+    console.log("--> produtosModel --> executando getByCategoriaAll "+id);
     const [produtos] = await connection.execute("SELECT P.ID as id, P.PR_DESCRICAO as descricao, P.PR_OBSERVACAO as observacao, "+
                                                 " P.PR_DESCRICAORESUMIDA as descricaoResumida, P.PR_VALORVENDA as valorVenda, "+
                                                  "P.PR_PROMOCAO as promocao, P.PR_DATAPROMOCAOINICIO as dataPromocaoInicio, "+
