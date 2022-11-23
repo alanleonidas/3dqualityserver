@@ -19,7 +19,7 @@ const getByCategoriaAll = async (id) => {
                                                  "P.PR_PROMOCAO as promocao, P.PR_DATAPROMOCAOINICIO as dataPromocaoInicio, "+
                                                  "P.PR_DATAPROMOCAOFIM as dataPromocaoFim, P.PR_VALORPROMOCAO as valorPromocao, "+
                                                  "P.PR_INATIVO as inativo, P.PR_FOTOS as imgs, c.NOME as categoria FROM PRODUTOS AS P LEFT JOIN CATEGORIA c ON (c.ID = P.PR_IDCATEGORIA ) "+
-                                                 " WHERE PR_INATIVO <> '1' AND deleted_at is null AND PR_IDCATEGORIA = "+id);
+                                                 " WHERE PR_INATIVO <> '1' AND deleted_at is null AND c.NOME = '"+id+"'");
     console.log(produtos);                                        
     return produtos;
 };
