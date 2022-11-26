@@ -5,8 +5,8 @@ const router = require("./router");
 const cors = require("cors");
 
 
-var key = fs.readFileSync(__dirname + "/../certs/selfsigned.key");
-var cert = fs.readFileSync(__dirname + "/../certs/selfsigned.crt");
+var key = fs.readFileSync("./certs/selfsigned.key");
+var cert = fs.readFileSync("./certs/selfsigned.crt");
 var options = {
     key: key,
     cert: cert
