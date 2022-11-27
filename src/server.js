@@ -1,7 +1,7 @@
 const app = require("./app");
 require("dotenv").config();
 
-console.log(process.env);
+console.log("dotenv  "+ process.env);
 
 // eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 3001;
