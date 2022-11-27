@@ -1,6 +1,6 @@
 const express = require("express");
-const https = require("https");
-const fs = require("fs");
+// const https = require("https");
+// const fs = require("fs");
 const router = require("./router");
 const cors = require("cors");
 
@@ -20,10 +20,10 @@ app.use((req, res, next) => {
 
 app.use(router);
 
-var server = https.createServer({
-    cert: fs.readFileSync("src/certs/certificate.crt"),
-    key: fs.readFileSync("src/certs/certificate.key")
-}, app);
+// var server = https.createServer({
+//     cert: fs.readFileSync("src/certs/certificate.crt"),
+//     key: fs.readFileSync("src/certs/certificate.key")
+// }, app);
 
-// module.exports = app;
-module.exports = server;
+module.exports = app;
+// module.exports = server;
