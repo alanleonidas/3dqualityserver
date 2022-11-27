@@ -2,7 +2,7 @@ module.exports = {
     apps: [
       {
         name: "Backend 3DQuality",
-        script: ".src/server.js",
+        script: "./src/server.js",
         exp_backoff_restart_delay: 100,
         env: {
             NODE_ENV: "prod",
