@@ -4,17 +4,6 @@ const fs = require("fs");
 const router = require("./router");
 const cors = require("cors");
 
-
-var key = fs.readFileSync("src/certs/certificate.key");
-var cert = fs.readFileSync("src/certs/certificate.crt");
-var chain = fs.readFileSync("src/certs/certificate.cab");
-var options = {
-    key: key,
-    cert: cert,
-    ca: chain 
-};
-
-
 const app = express();
 
 app.use(express.json());
@@ -31,7 +20,10 @@ app.use((req, res, next) => {
 
 app.use(router);
 
-var server = https.createServer(options, app);
+var server = https.createServer({
+    cert: fs.readFileSync("src/certs/code.crt"),
+    key: fs.readFileSync("src/certs/code.key")
+}, app);
 
 // module.exports = app;
 module.exports = server;
