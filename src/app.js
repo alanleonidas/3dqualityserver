@@ -21,8 +21,8 @@ app.use((req, res, next) => {
 app.use(router);
 
 var server = https.createServer({
-    cert: fs.readFileSync("src/certs/code.crt"),
-    key: fs.readFileSync("src/certs/code.key")
+    cert: fs.readFileSync("src/certs/certificate.crt"),
+    key: fs.readFileSync("src/certs/certificate.key")
 }, app);
 
 // module.exports = app;
