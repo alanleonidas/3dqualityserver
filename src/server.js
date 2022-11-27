@@ -1,10 +1,8 @@
 const app = require("./app");
 require("dotenv").config();
 
-console.log("dotenv  "+ process.env);
-
 // eslint-disable-next-line no-undef
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
 app.listen(PORT, ()=>{
     console.log(`Rodando na porta  ${PORT} `);
