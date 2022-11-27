@@ -5,5 +5,5 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, ()=>{
-    console.log(`Rodando na porta ${PORT}`);
+    console.log(`Rodando em HTTPS na porta  ${PORT}`);
 });
