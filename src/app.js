@@ -18,6 +18,8 @@ app.use((req, res, next) => {
             `${app.mode}://api.lttech.com.br`,
             `${app.mode}://www.3dqualitybr.com.br`,
             `${app.mode}://3dqualitybr.com.br`,
+            "https://api.lttech.com.br/produto/",
+            "https://3dqualitybr.com.br",
         ],
     }),);
     next();
