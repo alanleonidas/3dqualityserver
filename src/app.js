@@ -13,12 +13,11 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
     
     app.use(cors({
-        credentials: true,
         origin: [
             `${app.mode}://api.lttech.com.br`,
             `${app.mode}://www.3dqualitybr.com.br`,
             `${app.mode}://3dqualitybr.com.br`,
-            "https://api.lttech.com.br/produto/",
+            "https://api.lttech.com.br",
             "https://3dqualitybr.com.br",
         ],
     }),);
