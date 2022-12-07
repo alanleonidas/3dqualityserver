@@ -16,14 +16,14 @@ app.use(cors({
     ],
 }),);
 
-app.use((req, res, next) => {
-    console.log("Acessou para Liberar o CORS Novo método");
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "*");    
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+// app.use((req, res, next) => {
+//     console.log("Acessou para Liberar o CORS Novo método");
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "*");    
+//     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
     
-    next();
-});
+//     next();
+// });
 
 app.use(router);
 
