@@ -11,7 +11,15 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "*");    
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-    app.use(cors());
+    
+    app.use(cors({
+        credentials: true,
+        origin: [
+            `${app.mode}://api.lttech.com.br`,
+            `${app.mode}://www.3dqualitybr.com.br`,
+            `${app.mode}://3dqualitybr.com.br`,
+        ],
+    }),);
     next();
 });
 
