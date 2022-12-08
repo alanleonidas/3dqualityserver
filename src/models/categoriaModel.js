@@ -6,6 +6,12 @@ const getAll = async () => {
     return categoria;
 };
 
+// const getAllWithProduto = async () => {
+//     console.log("--> categoriaModel --> executando getAllWithProduto ");
+//     const [categoria] = await connection.execute("SELECT * FROM CATEGORIA c ");
+//     return categoria;
+// };
+
 const createCategoria = async (categoria) =>{
     const { nome } = categoria;
 
@@ -32,6 +38,7 @@ const updateCategoria = async (id, categoria) =>{
 
 module.exports = {
     getAll,
+    // getAllWithProduto,
     createCategoria,
     deleteCategoria,
     updateCategoria
