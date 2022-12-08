@@ -35,6 +35,7 @@ app.use((req, res, next) => {
     console.log("Acessou para Liberar o CORS Novo método");
     res.header("Access-Control-Allow-Credentials", "true");
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "*");    
     if (req.method==="OPTIONS") {
         res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
