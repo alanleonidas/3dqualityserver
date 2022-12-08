@@ -1,6 +1,6 @@
 const express = require("express");
 const router = require("./router");
-// const cors = require("cors");
+const cors = require("cors");
 
 const app = express();
 
@@ -17,19 +17,12 @@ app.use(express.json());
 // }),);
 
 
-// app.use(
-//     cors({
-//         credentials: true,
-//         origin: [
-//             `${app.mode}://api.lttech.com.br`,
-//             `${app.mode}://www.api.lttech.com.br`,
-//             `${app.mode}://3dqualitybr.com.br`,
-//             `${app.mode}:///www.3dqualitybr.com.br`,
-//             "http://127.0.0.1:5501",
-//             "*",
-//         ],
-//     }),
-// );
+app.use(
+    cors({
+        credentials: true,
+        origin: "*"
+    }),
+);
 
 app.use((req, res, next) => {
     console.log("Acessou para Liberar o CORS Novo método");
@@ -41,7 +34,7 @@ app.use((req, res, next) => {
         res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
         return res.status(200).send({});
     }
-    // app.use(cors());
+    app.use(cors());
     
     next();
 });
