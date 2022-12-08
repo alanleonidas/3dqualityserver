@@ -24,20 +24,20 @@ app.use(
     }),
 );
 
-app.use((req, res, next) => {
-    console.log("Acessou para Liberar o CORS Novo método");
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "*");    
-    if (req.method==="OPTIONS") {
-        res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-        return res.status(200).send({});
-    }
-    app.use(cors());
+// app.use((req, res, next) => {
+//     console.log("Acessou para Liberar o CORS Novo método");
+//     res.header("Access-Control-Allow-Credentials", "true");
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "*");    
+//     if (req.method==="OPTIONS") {
+//         res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+//         return res.status(200).send({});
+//     }
+//     app.use(cors());
     
-    next();
-});
+//     next();
+// });
 
 app.use(router);
 
