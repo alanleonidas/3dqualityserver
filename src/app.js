@@ -25,6 +25,7 @@ app.use(
             `${app.mode}://www.api.lttech.com.br`,
             `${app.mode}://3dqualitybr.com.br`,
             `${app.mode}:///www.3dqualitybr.com.br`,
+            "http://127.0.0.1:5501",
             "*",
         ],
     }),
