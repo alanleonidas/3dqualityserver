@@ -17,25 +17,28 @@ app.use(express.json());
 // }),);
 
 
-app.use(
-    cors({
-        credentials: true,
-        origin: [
-            `${app.mode}://api.lttech.com.br`,
-            `${app.mode}://www.api.lttech.com.br`,
-            `${app.mode}://3dqualitybr.com.br`,
-            `${app.mode}:///www.3dqualitybr.com.br`,
-            "http://127.0.0.1:5501",
-            "*",
-        ],
-    }),
-);
+// app.use(
+//     cors({
+//         credentials: true,
+//         origin: [
+//             `${app.mode}://api.lttech.com.br`,
+//             `${app.mode}://www.api.lttech.com.br`,
+//             `${app.mode}://3dqualitybr.com.br`,
+//             `${app.mode}:///www.3dqualitybr.com.br`,
+//             "http://127.0.0.1:5501",
+//             "*",
+//         ],
+//     }),
+// );
 
 app.use((req, res, next) => {
     console.log("Acessou para Liberar o CORS Novo método");
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "https://api.lttech.com.br, https://www.api.lttech.com.br, https://3dqualitybr.com.br");
     res.header("Access-Control-Allow-Headers", "*");    
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    if (req.method==="OPTIONS") {
+        res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+        return res.status(200).send({});
+    }
     app.use(cors());
     
     next();
