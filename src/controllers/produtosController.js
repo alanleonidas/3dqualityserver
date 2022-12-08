@@ -7,10 +7,6 @@ const getAll = async (req, res) =>{
     // if (!token) return res.status(401).send({ auth: false, message: "Nenhum token informado."});
     // if (token!="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21pbmlvIjoiM0RRdWFsaXR5QnIiLCJuYW1lIjoiU2VydmljZSIsInBhc3N3b2FyZCI6IkFwaUE4MTMyMDBETFQhIyJ9.cDoBWGGPIn_6o7-EG62d-_LOKLfxBlKP2shgRPn2Wec")  return res.status(401).send({ auth: false, message: "Token não autorizado."});
     const produtos = await produtosModel.getAll();
-
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "*");  
     return res.status(200).json({result: produtos});   
 };
 
@@ -22,10 +18,6 @@ const getByCategoriaAll = async (req, res) =>{
     // if (token!="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb21pbmlvIjoiM0RRdWFsaXR5QnIiLCJuYW1lIjoiU2VydmljZSIsInBhc3N3b2FyZCI6IkFwaUE4MTMyMDBETFQhIyJ9.cDoBWGGPIn_6o7-EG62d-_LOKLfxBlKP2shgRPn2Wec")  return res.status(401).send({ auth: false, message: "Token não autorizado."});
     const  { id } = req.params;
     const produtos = await produtosModel.getByCategoriaAll(id);
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "*");  
-    
     return res.status(200).json({result: produtos});   
 };
 
