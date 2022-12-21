@@ -4,7 +4,7 @@ const getAll = async () => {
     console.log("--> produtosModel --> executando getAll ");
     const [produtos] = await connection.execute("SELECT P.ID as id, P.PR_DESCRICAO as descricao, P.PR_OBSERVACAO as observacao, "+
                                                 " P.PR_DESCRICAORESUMIDA as descricaoResumida, P.PR_VALORVENDA as valorVenda, "+
-                                                 "case when P.PR_PROMOCAO = '0' then 'false' else 'true', P.PR_DATAPROMOCAOINICIO as dataPromocaoInicio, "+
+                                                 "case when P.PR_PROMOCAO = '0' then 'false' else 'true' end as promocao, P.PR_DATAPROMOCAOINICIO as dataPromocaoInicio, "+
                                                  "P.PR_DATAPROMOCAOFIM as dataPromocaoFim, P.PR_VALORPROMOCAO as valorPromocao, "+
                                                  "case when P.PR_INATIVO  = '0' then 'false' else 'true' end as inativo, P.PR_FOTOS as imgs, c.NOME as categoria FROM PRODUTOS AS P LEFT JOIN CATEGORIA c ON (c.ID = P.PR_IDCATEGORIA ) "+
                                                  " WHERE PR_INATIVO <> '1' AND deleted_at is null");
@@ -16,7 +16,7 @@ const getByID = async (id) => {
     console.log("--> produtosModel --> executando getAll ");
     const [produtos] = await connection.execute("SELECT P.ID as id, P.PR_DESCRICAO as descricao, P.PR_OBSERVACAO as observacao, "+
                                                 " P.PR_DESCRICAORESUMIDA as descricaoResumida, P.PR_VALORVENDA as valorVenda, "+
-                                                 "case when P.PR_PROMOCAO = '0' then 'false' else 'true', P.PR_DATAPROMOCAOINICIO as dataPromocaoInicio, "+
+                                                 "case when P.PR_PROMOCAO = '0' then 'false' else 'true' end as promocao, P.PR_DATAPROMOCAOINICIO as dataPromocaoInicio, "+
                                                  "P.PR_DATAPROMOCAOFIM as dataPromocaoFim, P.PR_VALORPROMOCAO as valorPromocao, "+
                                                  "case when P.PR_INATIVO  = '0' then 'false' else 'true' end as inativo, P.PR_FOTOS as imgs, c.NOME as categoria FROM PRODUTOS AS P LEFT JOIN CATEGORIA c ON (c.ID = P.PR_IDCATEGORIA ) "+
                                                  " WHERE p.id ='"+id+"'");
