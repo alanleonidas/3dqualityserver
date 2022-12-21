@@ -17,7 +17,7 @@ router.put("/categoria/:id", categoriaMiddleware.validateBody, categoriaControll
 
 router.get("/produto", cors(), produtoController.getAll);
 router.get("/produto/:id", cors(), produtoController.getByCategoriaAll);
-router.get("/produtoID/:id", cors(), produtoController.getByCategoriaAll);
+router.get("/produtoID/:id", cors(), produtoController.getByID);
 router.get("/produtointegracao", cors(), produtoController.getAllCadastro);
 router.post("/produto", produtoMiddleware.validateBody, produtoController.createProduto);
 router.delete("/produto/:id", produtoController.deleteProduto);
