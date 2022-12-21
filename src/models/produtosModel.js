@@ -19,7 +19,7 @@ const getByID = async (id) => {
                                                  "case when P.PR_PROMOCAO = '0' then 'false' else 'true' end as promocao, P.PR_DATAPROMOCAOINICIO as dataPromocaoInicio, "+
                                                  "P.PR_DATAPROMOCAOFIM as dataPromocaoFim, P.PR_VALORPROMOCAO as valorPromocao, "+
                                                  "case when P.PR_INATIVO  = '0' then 'false' else 'true' end as inativo, P.PR_FOTOS as imgs, c.NOME as categoria FROM PRODUTOS AS P LEFT JOIN CATEGORIA c ON (c.ID = P.PR_IDCATEGORIA ) "+
-                                                 " WHERE ID ='"+id+"'");
+                                                 " WHERE P.ID ='"+id+"'");
     console.log(produtos);                                        
     return produtos;
 };
